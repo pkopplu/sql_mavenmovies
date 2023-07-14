@@ -15,7 +15,6 @@ for image in image_paths:
     for line in range(len(lines)):
         lines[line] = re.sub(pattern, ' ', lines[line]).strip()
     l.extend(lines)
-
 lines_without_space = [line for line in l if (len(line)!= 0)]
 print(len(lines_without_space))
 with open(image_folder+'/questions.txt', 'w') as f:
