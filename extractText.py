@@ -6,7 +6,7 @@ pattern = r'[^A-Za-z\s,.]|\n'
 image_folder = r"C:\Users\prith\OneDrive\Desktop\Maven-SQL"
 images = os.listdir(image_folder)
 image_paths =[os.path.join(image_folder,image) for image in images]
-l=[]
+l = []
 for image in image_paths:
 
     i = Image.open(image)
