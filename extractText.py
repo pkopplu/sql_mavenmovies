@@ -2,8 +2,8 @@ from PIL import Image
 import pytesseract
 import re
 import os
-pattern = r'[^A-Za-z\s,.]|\n'
-image_folder = r"C:\Users\prith\OneDrive\Desktop\Maven-SQL"
+pattern = r'[^A-Za-z\s,.?%()]|\n'
+image_folder = r"C:\Users\prith\OneDrive\Desktop\Maven-SQL\final_project\generate_questions"
 images = os.listdir(image_folder)
 image_paths =[os.path.join(image_folder,image) for image in images]
 l = []
@@ -15,6 +15,7 @@ for image in image_paths:
     for line in range(len(lines)):
         lines[line] = re.sub(pattern, ' ', lines[line]).strip()
     l.extend(lines)
+print(len(l))
 lines_without_space = [line for line in l if (len(line)!= 0)]
 print(len(lines_without_space))
 with open(image_folder+'/questions.txt', 'w') as f:
